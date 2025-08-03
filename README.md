@@ -120,10 +120,6 @@ Map Cafe is a social food discovery app where users can log, rate, and map the c
 
 <img width="1190" height="558" alt="drawingPrototype" src="https://github.com/user-attachments/assets/ec5431f8-76d2-46bb-82de-36b4434c454d" />
 
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
 ## Schema 
 
 [This section will be completed in Unit 9]
