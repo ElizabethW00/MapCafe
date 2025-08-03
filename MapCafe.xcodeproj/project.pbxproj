@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A8A93A2C2E3EE6650092ED06 /* brainstorming.md in Resources */ = {isa = PBXBuildFile; fileRef = A8A93A2B2E3EE65E0092ED06 /* brainstorming.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		A8A93A112E3EE3AE0092ED06 /* MapCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8A93A2B2E3EE65E0092ED06 /* brainstorming.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = brainstorming.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +50,7 @@
 		A8A93A082E3EE3AE0092ED06 = {
 			isa = PBXGroup;
 			children = (
+				A8A93A2B2E3EE65E0092ED06 /* brainstorming.md */,
 				A8A93A132E3EE3AE0092ED06 /* MapCafe */,
 				A8A93A122E3EE3AE0092ED06 /* Products */,
 			);
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A93A2C2E3EE6650092ED06 /* brainstorming.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
