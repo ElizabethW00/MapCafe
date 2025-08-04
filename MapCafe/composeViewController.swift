@@ -133,7 +133,8 @@ class composeViewController: UIViewController, UIImagePickerControllerDelegate, 
         let note = noteField.text
 //        let location = locationField.text ?? ""
         let price = priceField.text ?? ""
-        let image = imageField.image
+        let image = imageField.image?.jpegData(compressionQuality: 0.8)
+
         let rating = ratingView.rating
 
         var finalCafe: myCafe
@@ -143,7 +144,7 @@ class composeViewController: UIViewController, UIImagePickerControllerDelegate, 
             editingCafe.note = note
             editingCafe.location = location
             editingCafe.price = price
-            editingCafe.image = image
+            editingCafe.image = imageField.image
             editingCafe.rating = rating
             finalCafe = editingCafe
         } else {
@@ -153,10 +154,11 @@ class composeViewController: UIViewController, UIImagePickerControllerDelegate, 
                 rating: rating,
                 price: price,
                 location: location,
-                image: image
+                image: imageField.image
             )
         }
-
+        
+        print("Done tapped with: \(finalCafe.name)")
         onComposemyCafe?(finalCafe)
         dismiss(animated: true)
     }

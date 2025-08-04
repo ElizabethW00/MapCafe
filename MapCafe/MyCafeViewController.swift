@@ -17,7 +17,10 @@ class MyCafeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyCafeTableViewCell", for: indexPath) as! MyCafeTableViewCell
+        print("ATTEMPT CELL")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCafeTableViewCell", for: indexPath) as! MyCafeTableViewCell
+        
+        print("CELL CREATED")
             
             let cafe = myCafes[indexPath.row]  // Avoid shadowing by using a different name
             
@@ -51,38 +54,47 @@ class MyCafeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     // Refresh the myCafes list each time the view appears in case any myCafes were updated on the other tab.
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        refreshMyCafe()
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         refreshMyCafe()
     }
+
     
     @IBAction func didTapNewmyCafeButton(_ sender: Any) {
         performSegue(withIdentifier: "ComposeSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // 1.
-        if segue.identifier == "ComposeSegue" {
-            // 2.
-            // i.
-            if let composeNavController = segue.destination as? UINavigationController,
-                // ii.
-               let composeViewController = composeNavController.topViewController as? composeViewController {
-
-                // 3.
-                composeViewController.myCafeToEdit = sender as? myCafe
-
-                // 4.
-                // i.
-                // ii.
-                composeViewController.onComposemyCafe = { [weak self] myCafe in
-                    myCafe.save()
-                    self?.refreshMyCafe()
-                }
+        if let composeViewController = segue.destination as? composeViewController {
+            composeViewController.myCafeToEdit = sender as? myCafe
+            composeViewController.onComposemyCafe = { [weak self] myCafe in
+                print("Saving cafe: \(myCafe.name)")
+                myCafe.save()
+                self?.refreshMyCafe()
             }
         }
     }
+
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ComposeSegue" {
+//            if let composeNavController = segue.destination as? UINavigationController,
+//               let composeViewController = composeNavController.topViewController as? composeViewController {
+//                composeViewController.myCafeToEdit = sender as? myCafe
+//                composeViewController.onComposemyCafe = { [weak self] myCafe in
+//                    print("Saving cafe: \(myCafe.name)")
+//                    myCafe.save()
+//                    self?.refreshMyCafe()
+//                }
+//            }
+//        }
+//    }
 
     /*
     // MARK: - Navigation
@@ -96,6 +108,7 @@ class MyCafeViewController: UIViewController, UITableViewDataSource, UITableView
     */
     private func refreshMyCafe() {
         let myCafes = myCafe.getmyCafes()
+        print("Refreshed cafes: \(myCafes.map { $0.name })")
         self.myCafes = myCafes
         tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }

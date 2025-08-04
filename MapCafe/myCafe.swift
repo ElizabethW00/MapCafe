@@ -61,6 +61,7 @@ extension myCafe {
         do {
             let encodedData = try JSONEncoder().encode(myCafes)
             defaults.set(encodedData, forKey: storageKey)
+            print("Saved \(myCafes.count) cafes")
         } catch {
             print("Failed to encode cafes: \(error)")
         }
