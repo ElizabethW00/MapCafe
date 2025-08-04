@@ -59,7 +59,7 @@ Map Cafe is a social food discovery app where users can log, rate, and map the c
 
   * User can log in or register an account
 
-* [ ] **Food Log List Screen**
+* [X] **Food Log List Screen**
 
   * View all added food entries in a scrollable list
   
@@ -68,7 +68,7 @@ Map Cafe is a social food discovery app where users can log, rate, and map the c
   * View user's food pins on a map
   * Tap on pins to see details
 
-* [ ] **Add Food Entry Screen**
+* [X] **Add Food Entry Screen**
 
   * Add a new place, rating, photo, and description
 
@@ -98,11 +98,11 @@ Map Cafe is a social food discovery app where users can log, rate, and map the c
 
   * → Tab Bar Screen after authentication
 
-* [ ] **Map Tab**
+* [X] **Map Tab**
 
   * Tap on pin → Entry Detail Modal
 
-* [ ] **Add Entry Tab**
+* [X] **Add Entry Tab**
 
   * Select location → Input → Save → Map/Food Log
 
